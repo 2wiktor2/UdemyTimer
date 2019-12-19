@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Udemy_StopWatch</string>
+    <string name="init_time">00:00:00</string>
+<string name="b_start">Start</string>
+<string name="b_pause">Pause</string>
+<string name="b_reset">Reset</string>
+</resources>
