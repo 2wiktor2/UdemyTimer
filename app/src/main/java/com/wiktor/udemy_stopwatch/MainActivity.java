@@ -3,6 +3,7 @@ package com.wiktor.udemy_stopwatch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonStart.setOnClickListener(this);
         buttonPause.setOnClickListener(this);
         buttonReset.setOnClickListener(this);
+
+        runTimer();
     }
 
     @Override
@@ -51,14 +54,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void runTimer() {
-        int hours = seconds / 3600;
-        int minutes = (seconds % 3600) / 60;
-        int secs = seconds % 60;
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
 
-        String time = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, secs);
+                int hours = seconds / 3600;
+                int minutes = (seconds % 3600) / 60;
+                int secs = seconds % 60;
 
-        if (isRunning) {
-            seconds++;
-        }
+                String time = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, secs);
+                textViewTime.setText(time);
+
+                if (isRunning) {
+                    seconds++;
+                }
+                // выполнить этот же метод еще раз, но с задержкой 1сек
+                handler.postDelayed(this, 1000);
+
+            }
+        });
+
     }
 }
