@@ -10,6 +10,7 @@
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/init_time"
         android:textSize="72sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -17,30 +18,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_time">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/b_start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_margin="8dp"
+            android:text="@string/b_start" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/b_pause"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_margin="8dp"
+            android:text="@string/b_pause" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/b_reset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_margin="8dp"
+            android:text="@string/b_reset" />
     </LinearLayout>
 
 
