@@ -2,6 +2,7 @@ package com.wiktor.udemy_stopwatch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -35,6 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonReset.setOnClickListener(this);
 
         runTimer();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     @Override
