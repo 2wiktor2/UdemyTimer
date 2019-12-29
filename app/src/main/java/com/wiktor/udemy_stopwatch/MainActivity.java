@@ -35,12 +35,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonPause.setOnClickListener(this);
         buttonReset.setOnClickListener(this);
 
+        // 2. Получаем сохраненные значения из бандла
+        // 3. для того чтобы не выпала ошибка когда бандл = null, т.е. когда активити только что создана задаем проверку
+        if (savedInstanceState != null) {
+            seconds = savedInstanceState.getInt("seconds");
+            isRunning = savedInstanceState.getBoolean("isRunning");
+        }
         runTimer();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        // 1. Кладем в бандл нужные значения для созранения
+        outState.putInt("seconds", seconds);
+        outState.putBoolean("isRunning", isRunning);
     }
 
     @Override
